@@ -1,0 +1,20 @@
+services:
+  storefront:
+    build:
+      context: .
+      dockerfile: .devcontainer/Dockerfile
+    container_name: cbd_master_storefront
+    restart: unless-stopped
+    ports:
+      - "3000:3000"
+    environment:
+      - NODE_ENV=development
+      - PORT=3000
+      - NEXT_PUBLIC_MEDUSA_BACKEND_URL=${NEXT_PUBLIC_MEDUSA_BACKEND_URL:-http://localhost:9000}
+      - NEXT_PUBLIC_MEDUSA_PUBLISHABLE_KEY=${NEXT_PUBLIC_MEDUSA_PUBLISHABLE_KEY:-pk_test}
+    volumes:
+      - .:/workspace:cached
+      - /workspace/node_modules
+      - /workspace/.next
+    working_dir: /workspace
+    command: sh -c "npm install && npm run dev"

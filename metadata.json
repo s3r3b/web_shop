@@ -1,0 +1,6 @@
+{
+  "name": "CBD Master Level",
+  "description": "Luksusowy sklep internetowy z olejkami CBD premium.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
